@@ -1,0 +1,1 @@
+12 485     memcpy( (char*) outImage.raster,

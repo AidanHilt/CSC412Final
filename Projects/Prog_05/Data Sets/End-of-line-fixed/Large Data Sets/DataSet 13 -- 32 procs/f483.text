@@ -1,0 +1,1 @@
+12 502             rasterIn[i*image->width + j];

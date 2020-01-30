@@ -1,0 +1,1 @@
+33 676                 fread( ptr, sizeof(char), info.width, tga_in ) ;

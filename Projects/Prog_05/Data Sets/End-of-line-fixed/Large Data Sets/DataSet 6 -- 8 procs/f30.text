@@ -1,0 +1,1 @@
+6 976                 r2D[i] = pixelData + i*image.bytesPerRow;

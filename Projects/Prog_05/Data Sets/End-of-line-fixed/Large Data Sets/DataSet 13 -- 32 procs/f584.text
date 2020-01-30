@@ -1,0 +1,1 @@
+10 419     for (unsigned int k=1; k<strlen(rotStr); k++)

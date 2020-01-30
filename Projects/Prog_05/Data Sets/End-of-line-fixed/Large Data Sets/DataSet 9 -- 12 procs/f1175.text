@@ -1,0 +1,1 @@
+8 845         errorReport(INVALID_CROP_WIDTH_TYPE, argv[3]);

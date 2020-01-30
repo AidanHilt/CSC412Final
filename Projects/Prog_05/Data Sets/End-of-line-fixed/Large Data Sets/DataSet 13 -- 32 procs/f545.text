@@ -1,0 +1,1 @@
+29 1139         fprintf(fp, "%d\n", img->maxVal);

@@ -1,0 +1,1 @@
+98 981                 for (unsigned int i = nbRows-1, invI = 0; invI < nbRows; i--, invI++)

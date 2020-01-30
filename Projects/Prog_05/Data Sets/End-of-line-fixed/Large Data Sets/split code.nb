@@ -1,0 +1,818 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35180,        810]
+NotebookOptionsPosition[     30025,        728]
+NotebookOutlinePosition[     30378,        744]
+CellTagsIndexPosition[     30335,        741]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Mathematica Code for Generating
+Data for CSC412 Prog 04 [Fall 2018]\
+\>", "Title",
+ CellChangeTimes->{{3.718895679206621*^9, 3.718895717308139*^9}, 
+   3.7502159747166653`*^9, 
+   3.750219736418198*^9},ExpressionUUID->"a5456cf8-e6f0-46e0-bce6-\
+b5f661d98c29"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+This code reads the text of a source file and writes it back as a set of \
+separate text files with random names, one file for each line of the original \
+program. Each line is prefixed with the index of the process that should \
+treat it followed by the original line number, to allow later reconstruction.\
+\
+\>", "Chapter",
+ CellChangeTimes->{{3.7188957499067917`*^9, 
+  3.718895938571854*^9}},ExpressionUUID->"38b9fac0-f369-412f-9b17-\
+242a2f226c8c"],
+
+Cell[CellGroupData[{
+
+Cell["1. Get the data in", "Section",
+ CellChangeTimes->{{3.718895722947817*^9, 3.718895736499296*^9}, {
+   3.71889594337155*^9, 3.718895947036419*^9}, 
+   3.718896213490374*^9},ExpressionUUID->"a6891bf8-2139-43f9-8d23-\
+3648a19a0ace"],
+
+Cell["\<\
+I look for a source file in the same folder as the notebook.  Feel free to \
+navigate your folder hierarchy to find your file elsewhere.\
+\>", "Text",
+ CellChangeTimes->{{3.718895954867655*^9, 
+  3.7188960017383757`*^9}},ExpressionUUID->"84cef643-47f9-4227-84a8-\
+672eeefeb3cb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FileNames", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.718897631186672*^9, 3.718897636960889*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"2ecbfb3a-a011-437e-88a9-5ee02d3492e8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"combined.c\"\>", ",", "\<\".DS_Store\"\>", 
+   ",", "\<\"split code.nb\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.718895196786458*^9, 3.718895272617487*^9, 
+  3.718896157139282*^9, 3.718899965344632*^9, 3.7502178496006317`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"3ee8d40d-2096-4952-8404-f41ab395bb45"]
+}, Open  ]],
+
+Cell["\<\
+I read the program as a list of strings.  Now we are ready to process.\
+\>", "Text",
+ CellChangeTimes->{{3.71889617942782*^9, 3.718896199507247*^9}, {
+  3.7189000279235783`*^9, 
+  3.718900075306991*^9}},ExpressionUUID->"7b193f8f-e954-4cf9-b0ec-\
+bbc75886fb96"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{"\"\<combined.c\>\"", ",", "String"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Dimensions", "[", "data", "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.718895276686201*^9, 3.718895324649744*^9}, {
+   3.718895364033104*^9, 3.7188953664643908`*^9}, {3.718896171078507*^9, 
+   3.718896190947672*^9}, {3.71889622767386*^9, 3.7188962413220863`*^9}, 
+   3.718896498625636*^9, {3.718899955017424*^9, 3.7188999607504473`*^9}, {
+   3.750217854264564*^9, 3.750217855587232*^9}, {3.75021913583335*^9, 
+   3.7502191363738127`*^9}, {3.750219661406518*^9, 3.750219662579228*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"46af6abd-ec20-4bce-b43d-42b3d8a1629d"],
+
+Cell[BoxData["1241"], "Output",
+ CellChangeTimes->{3.718896242062764*^9, 3.718899969757985*^9, 
+  3.7502178626347113`*^9, 3.750219139568479*^9, 3.7502193309233*^9, 
+  3.7502196717912693`*^9},
+ CellLabel->"Out[63]=",ExpressionUUID->"922e5038-952d-4748-a5b4-e4b081755a07"]
+}, Open  ]],
+
+Cell["Note that Mathematica \"eats\" blank lines.", "Text",
+ CellChangeTimes->{{3.7189000795140743`*^9, 
+  3.718900082364831*^9}},ExpressionUUID->"76e0ffec-bb9e-44af-89fc-\
+5220e6c1a52d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "[", 
+  RowBox[{"[", "95", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7189000003825083`*^9, 3.71890000151709*^9}, {
+   3.718900099476948*^9, 3.718900099657403*^9}, 3.7502178785180283`*^9, 
+   3.75021797324995*^9, {3.750218009472728*^9, 3.750218028940917*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"06a70c5b-ef5a-45ee-998e-d0d1ec442bc2"],
+
+Cell[BoxData["\<\"    \\\"Incorrect number of arguments.\\\\nProper usage: \
+rotate -{r|l}+ inputImagePath outFolderPath\\\\n\\\",  //  \
+WRONG_NUMBER_OF_ARGUMENTS\"\>"], "Output",
+ CellChangeTimes->{
+  3.718900063740055*^9, 3.718900100333755*^9, {3.750217874891274*^9, 
+   3.750217879011107*^9}, 3.750217974338125*^9, {3.750218010674917*^9, 
+   3.750218029513547*^9}, 3.750219674473157*^9},
+ CellLabel->"Out[64]=",ExpressionUUID->"08b0b4bc-9a49-4269-bc37-fda9b5a97b9d"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lineLength", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"StringLength", ",", "data"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7189000145659523`*^9, 3.7189000145757923`*^9}, {
+  3.7502182827836514`*^9, 3.750218343313774*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"33c1faa7-3631-4d38-8c94-ffbc629e13b5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. The program", "Section",
+ CellChangeTimes->{{3.718896210362781*^9, 3.7188962112267*^9}, {
+  3.718896261443873*^9, 
+  3.718896264592656*^9}},ExpressionUUID->"53c53980-c89a-4f42-a785-\
+20181232bf93"],
+
+Cell["\<\
+My function takes as parameters the list of lines of the original program, \
+the number of processes we want to split the work for, and the name of the \
+output directory.\
+\>", "Text",
+ CellChangeTimes->{{3.718896377196081*^9, 
+  3.718896435171254*^9}},ExpressionUUID->"3f1d5657-10de-4d22-b5bb-\
+afddd7a5591f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"split", "[", 
+    RowBox[{"code_", ",", "nbProcs_", ",", "outDir_"}], "]"}], ":=", 
+   RowBox[{"Block", "[", "\[IndentingNewLine]", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "I", " ", "define", " ", "some", " ", "local", " ", "variables", " ", 
+      "for", " ", "my", " ", "function"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"nbLines", "=", 
+        RowBox[{
+         RowBox[{"Dimensions", "[", "code", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"nbLinesPerProc", "=", 
+        RowBox[{"Ceiling", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Dimensions", "[", "code", "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "/", "nbProcs"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "procIndex", ",", "     ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "index", " ", "of", " ", "the", " ", "process", " ", "assigned", " ", 
+         "to", " ", "the", " ", "line", " ", "being", " ", "treated", " ", 
+         RowBox[{"(", "loop", ")"}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+       "outLine", ",", "         ", 
+       RowBox[{"(*", "  ", 
+        RowBox[{
+        "the", " ", "line", " ", "prefixed", " ", "with", " ", "process", " ",
+          "index", " ", "and", " ", "its", " ", "own", " ", "number"}], "  ", 
+        "*)"}], "\[IndentingNewLine]", "permut", ",", "           ", 
+       RowBox[{"(*", "  ", 
+        RowBox[{
+        "a", " ", "random", " ", "ordering", " ", "for", " ", "the", " ", 
+         "lines", " ", "of", " ", "code"}], "  ", "*)"}], 
+       "\[IndentingNewLine]", "catalog", ",", "         ", 
+       RowBox[{"(*", "  ", 
+        RowBox[{
+        "list", " ", "of", " ", "files", " ", "in", " ", "the", " ", 
+         "current", " ", "directory"}], " ", "*)"}], "\[IndentingNewLine]", 
+       "outName", ",", "         ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "file", " ", "name", " ", "assigned", " ", "to", " ", "a", " ", 
+         "ligne", " ", "of", " ", "code"}], "  ", "*)"}], 
+       "\[IndentingNewLine]", "fstream", ",", "         ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "the", " ", "file", " ", "stream", " ", "needed", " ", "for", " ", 
+         "writing", " ", "the", " ", "current", " ", "line"}], " ", "*)"}], 
+       "\[IndentingNewLine]", "k"}], "                           ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"loop", " ", "index"}], "  ", "*)"}], "\[IndentingNewLine]", 
+      "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "First", " ", "create", " ", "a", " ", "random", " ", "ordering", " ", 
+       "for", " ", "the", " ", "files"}], "  ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"permut", "=", 
+       RowBox[{"RandomSample", "[", 
+        RowBox[{"Range", "[", "nbLines", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Create", " ", "the", " ", "output", " ", 
+        RowBox[{"directory", "."}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"catalog", "=", 
+       RowBox[{"FileNames", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Dimensions", "[", 
+           RowBox[{"Position", "[", 
+            RowBox[{"catalog", ",", "outDir"}], "]"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "\[NotEqual]", "0"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+          "If", " ", "a", " ", "directory", " ", "with", " ", "that", " ", 
+           "name", " ", "already", " ", "exists"}], ",", " ", 
+          RowBox[{"then", " ", "bail", " ", "out"}]}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{
+         "\"\<A folder with the name \>\"", "<>", "outDir", "<>", 
+          "\"\< already exists.\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Else", " ", "create", " ", "the", " ", "directory", " ", "and", " ",
+           "move", " ", "there"}], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"CreateDirectory", "[", "outDir", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"SetDirectory", "[", "outDir", "]"}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", " ", 
+          RowBox[{"Iterate", " ", "over", " ", "each", " ", "line"}], "  ", 
+          "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"k", "=", "1"}], ",", 
+           RowBox[{"k", "\[LessEqual]", "nbLines"}], ",", 
+           RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "determine", " ", "which", " ", "process", " ", "it", " ", "must",
+              " ", "be", " ", "assigned", " ", "to"}], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"procIndex", "=", 
+             RowBox[{"Floor", "[", 
+              RowBox[{"k", "/", "nbLinesPerProc"}], "]"}]}], ";", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "prepend", " ", "this", " ", "index", " ", "and", " ", "the", 
+              " ", "line", " ", "number", " ", "in", " ", "front", " ", "of", 
+              " ", "the", " ", "line"}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"outLine", "=", 
+             RowBox[{
+              RowBox[{"ToString", "[", "procIndex", "]"}], "<>", "\"\< \>\"", 
+              "<>", 
+              RowBox[{"ToString", "[", "k", "]"}], "<>", "\"\< \>\"", "<>", 
+              RowBox[{"code", "[", 
+               RowBox[{"[", "k", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]",
+             "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{
+              "produce", " ", "the", " ", "name", " ", "of", " ", "the", " ", 
+               "file"}], ",", " ", 
+              RowBox[{
+              "using", " ", "the", " ", "random", " ", "permutation", " ", 
+               "index"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"outName", "=", 
+             RowBox[{"\"\<f\>\"", "<>", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"permut", "[", 
+                RowBox[{"[", "k", "]"}], "]"}], "]"}], "<>", 
+              "\"\<.text\>\""}]}], ";", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Write", " ", "the", " ", "modified", " ", "line", " ", "into", 
+              " ", "the", " ", "file"}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"fstream", "=", 
+             RowBox[{"OpenWrite", "[", "outName", "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"WriteString", "[", 
+             RowBox[{"fstream", ",", "outLine"}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"WriteString", "[", 
+             RowBox[{"fstream", ",", "\"\<\\n\>\""}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Close", "[", "fstream", "]"}]}]}], "\[IndentingNewLine]",
+           "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+          "Move", " ", "back", " ", "to", " ", "the", " ", "original", " ", 
+           "directory"}], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"SetDirectory", "[", "\"\<..\>\"", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Print", "[", "\"\<Data set produced\>\"", "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.718896268098818*^9, 3.718896322297229*^9}, {
+   3.718896355326003*^9, 3.718896373221279*^9}, {3.718896439164357*^9, 
+   3.718896541335662*^9}, {3.718896577592819*^9, 3.718896588152269*^9}, {
+   3.718896634670218*^9, 3.7188969338584003`*^9}, {3.718896978283659*^9, 
+   3.718896983441901*^9}, {3.718897048224226*^9, 3.718897072775564*^9}, {
+   3.7188971222773867`*^9, 3.718897298334318*^9}, {3.718897521759857*^9, 
+   3.718897610699424*^9}, {3.718897641881665*^9, 3.71889766732213*^9}, {
+   3.7188977519350977`*^9, 3.7188984062639647`*^9}, {3.718898445926876*^9, 
+   3.718898615928206*^9}, 3.718898681807564*^9, {3.718898727853918*^9, 
+   3.7188987330447893`*^9}, {3.7188998929795523`*^9, 3.718899910593885*^9}, {
+   3.7502183675246696`*^9, 3.750218420329735*^9}, {3.750218524976391*^9, 
+   3.750218569572597*^9}, {3.750218661499148*^9, 3.750218662425733*^9}, 
+   3.750218790436985*^9, {3.750219594009904*^9, 3.750219608431672*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"fca35e63-8f10-4bff-a293-8f961aff64a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3. Produce data sets for different number of processes", "Section",
+ CellChangeTimes->{{3.718898775641467*^9, 
+  3.718898797975485*^9}},ExpressionUUID->"b410dece-c00d-4bfd-b8dc-\
+c1b66ea20728"],
+
+Cell["\<\
+The source file I use has 1189 lines (only 1054, since Mathematica skipped \
+the blank lines), so we can create a large number of processes if we want. I \
+create a list of number of processes I want to see work on my data.  I can \
+repeat some values for multiple runs. You may try more, but I am not sure if \
+the OS will accept.\
+\>", "Text",
+ CellChangeTimes->{{3.7188988212078648`*^9, 3.718898863324398*^9}, {
+  3.7188988982599792`*^9, 3.7188989292188997`*^9}, {3.7188990537184153`*^9, 
+  3.718899074669757*^9}, {3.718900256725319*^9, 
+  3.718900293490163*^9}},ExpressionUUID->"a96a5cba-7faa-4722-9299-\
+3887baa300d9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"numProcs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "2", ",", "2", ",", "4", ",", "4", ",", "8", ",", "8", ",", "8", ",", 
+     "12", ",", "12", ",", "16", ",", "16", ",", "16", ",", " ", "32", ",", 
+     " ", "64", ",", " ", "128"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"k", "=", "1"}], ",", 
+   RowBox[{"k", "\[LessEqual]", 
+    RowBox[{
+     RowBox[{"Dimensions", "[", "numProcs", "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+   RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outDirName", "=", 
+     RowBox[{"\"\<DataSet \>\"", "<>", 
+      RowBox[{"ToString", "[", "k", "]"}], "<>", "\"\< -- \>\"", "<>", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"numProcs", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], "]"}], "<>", "\"\< procs\>\""}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<k = \>\"", ",", "k", ",", "\"\<  output directory: \>\"", ",", 
+      "outDirName"}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"split", "[", 
+     RowBox[{"data", ",", 
+      RowBox[{"numProcs", "[", 
+       RowBox[{"[", "k", "]"}], "]"}], ",", "outDirName"}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.7188989640379667`*^9, 3.71889896597771*^9}, {
+   3.718898996816471*^9, 3.718899035063101*^9}, {3.718899178747558*^9, 
+   3.718899401738594*^9}, {3.7188994321228523`*^9, 3.718899444777269*^9}, {
+   3.718899483226481*^9, 3.718899501638345*^9}, {3.7188995666866503`*^9, 
+   3.718899578899596*^9}, {3.71889960985317*^9, 3.7188996374455347`*^9}, {
+   3.718899721592531*^9, 3.718899724343464*^9}, {3.7188998366042337`*^9, 
+   3.718899845362905*^9}, {3.7189001388518457`*^9, 3.718900186919194*^9}, 
+   3.7189002429748*^9, {3.750218583957032*^9, 3.7502186189126*^9}, {
+   3.75021964812913*^9, 3.7502196526441813`*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"d4f5caa4-19fb-4696-9dee-7ea3fb5361e4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 1 -- 2 procs\"\>"}],
+  SequenceForm["k = ", 1, "  output directory: ", "DataSet 1 -- 2 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695023368*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"b65f2917-c32d-45df-9f95-3da381d59ea3"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695351287*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"211a4a16-b76a-48a4-a338-878e402a84ed"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 2 -- 2 procs\"\>"}],
+  SequenceForm["k = ", 2, "  output directory: ", "DataSet 2 -- 2 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695363285*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"5919a814-1f70-4bd9-bd64-c9897834740b"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695621933*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"4d89982d-07c8-418d-b762-e624fa0f2ea0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 3 -- 4 procs\"\>"}],
+  SequenceForm["k = ", 3, "  output directory: ", "DataSet 3 -- 4 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695627692*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"d87acbc5-3478-4948-88e4-b87fe0bf30a1"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695867608*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"51dfa996-a37b-456a-9bc5-57e44664232b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 4 -- 4 procs\"\>"}],
+  SequenceForm["k = ", 4, "  output directory: ", "DataSet 4 -- 4 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219695871724*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"50afcbd7-26d5-4354-9b93-6111e9bfc5b2"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696101198*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"4aff3a21-2f24-4c15-bf74-eb9a80fd855e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 5 -- 8 procs\"\>"}],
+  SequenceForm["k = ", 5, "  output directory: ", "DataSet 5 -- 8 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696105433*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"50d91ab5-5d5d-4fba-a2c5-c726a2cf3e6b"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696343657*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"069d488e-ef62-433f-af00-a7fde4b019c5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 6 -- 8 procs\"\>"}],
+  SequenceForm["k = ", 6, "  output directory: ", "DataSet 6 -- 8 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696347838*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"7d60752d-c0bd-4641-990c-71c40e0c4447"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696582922*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"7a11718a-4766-4ee6-b69c-fbe27ed934c7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 7 -- 8 procs\"\>"}],
+  SequenceForm["k = ", 7, "  output directory: ", "DataSet 7 -- 8 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219696586894*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"891922f6-25e8-4e3a-ae3b-247d3cc95e30"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196968212633`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"199222cf-bcdd-49df-b1cb-b35b11163bf2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 8 -- 12 procs\"\>"}],
+  SequenceForm["k = ", 8, "  output directory: ", "DataSet 8 -- 12 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196968252974`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"caa8fba4-e5b6-4328-a267-c52170534b62"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219697067769*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"1a11c19c-5ae1-421d-9dbd-ac27062b873b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "9", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 9 -- 12 procs\"\>"}],
+  SequenceForm["k = ", 9, "  output directory: ", "DataSet 9 -- 12 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219697071891*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"091fe042-3e8c-4e98-bc06-58a2ad88e612"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196973041286`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"5d4822b0-e077-412f-bbba-7b3dca4c010d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "10", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 10 -- 16 procs\"\>"}],
+  SequenceForm["k = ", 10, "  output directory: ", "DataSet 10 -- 16 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219697308257*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"9c00e41e-e616-4d17-b67b-9895b2e0ad28"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196975445757`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"d4de4b82-e2ab-454c-b894-dbc1c171746b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "11", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 11 -- 16 procs\"\>"}],
+  SequenceForm["k = ", 11, "  output directory: ", "DataSet 11 -- 16 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196975488987`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"a9f1e2b0-3a82-4d3e-935d-a5ef566e0ade"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219697786253*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"ea026477-ac9e-485d-a178-ba79cdef52b8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 12 -- 16 procs\"\>"}],
+  SequenceForm["k = ", 12, "  output directory: ", "DataSet 12 -- 16 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196977902412`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"2ff39791-ae7d-4231-ab12-6c84ca290312"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196980225554`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"2fd06b3f-8efa-487d-9833-850338e59faa"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "13", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 13 -- 32 procs\"\>"}],
+  SequenceForm["k = ", 13, "  output directory: ", "DataSet 13 -- 32 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196980272093`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"32a69b1b-9c17-4983-b419-0963a35cab9c"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219698260262*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"a535d58c-6c95-46f4-9b8f-007c132de4c7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "14", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 14 -- 64 procs\"\>"}],
+  SequenceForm["k = ", 14, "  output directory: ", "DataSet 14 -- 64 procs"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219698264332*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"6704b506-ea46-4c54-af96-b84355267727"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196984930058`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"898c838f-0ba3-433b-9572-ec581ff61bd2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"k = \"\>", "\[InvisibleSpace]", "15", 
+   "\[InvisibleSpace]", "\<\"  output directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"DataSet 15 -- 128 procs\"\>"}],
+  SequenceForm["k = ", 15, "  output directory: ", "DataSet 15 -- 128 procs"],
+  
+  Editable->False]], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.7502196984971743`*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"930a9fb8-058d-41c5-ae34-8304b331a21f"],
+
+Cell[BoxData["\<\"Data set produced\"\>"], "Print",
+ CellChangeTimes->{3.750219158534274*^9, 3.750219262194923*^9, 
+  3.7502193348557262`*^9, 3.750219698726046*^9},
+ CellLabel->
+  "During evaluation of \
+In[67]:=",ExpressionUUID->"1f64bcc2-cc26-4a9f-904e-5183774a77db"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1100, 839},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 269, 7, 160, "Title",ExpressionUUID->"a5456cf8-e6f0-46e0-bce6-b5f661d98c29"],
+Cell[CellGroupData[{
+Cell[874, 33, 464, 9, 261, "Chapter",ExpressionUUID->"38b9fac0-f369-412f-9b17-242a2f226c8c"],
+Cell[CellGroupData[{
+Cell[1363, 46, 235, 4, 67, "Section",ExpressionUUID->"a6891bf8-2139-43f9-8d23-3648a19a0ace"],
+Cell[1601, 52, 288, 6, 35, "Text",ExpressionUUID->"84cef643-47f9-4227-84a8-672eeefeb3cb"],
+Cell[CellGroupData[{
+Cell[1914, 62, 330, 7, 52, "Input",ExpressionUUID->"2ecbfb3a-a011-437e-88a9-5ee02d3492e8"],
+Cell[2247, 71, 353, 6, 34, "Output",ExpressionUUID->"3ee8d40d-2096-4952-8404-f41ab395bb45"]
+}, Open  ]],
+Cell[2615, 80, 270, 6, 35, "Text",ExpressionUUID->"7b193f8f-e954-4cf9-b0ec-bbc75886fb96"],
+Cell[CellGroupData[{
+Cell[2910, 90, 791, 15, 52, "Input",ExpressionUUID->"46af6abd-ec20-4bce-b43d-42b3d8a1629d"],
+Cell[3704, 107, 270, 4, 34, "Output",ExpressionUUID->"922e5038-952d-4748-a5b4-e4b081755a07"]
+}, Open  ]],
+Cell[3989, 114, 187, 3, 35, "Text",ExpressionUUID->"76e0ffec-bb9e-44af-89fc-5220e6c1a52d"],
+Cell[CellGroupData[{
+Cell[4201, 121, 372, 6, 30, "Input",ExpressionUUID->"06a70c5b-ef5a-45ee-998e-d0d1ec442bc2"],
+Cell[4576, 129, 470, 7, 56, "Output",ExpressionUUID->"08b0b4bc-9a49-4269-bc37-fda9b5a97b9d"]
+}, Open  ]],
+Cell[5061, 139, 346, 7, 30, "Input",ExpressionUUID->"33c1faa7-3631-4d38-8c94-ffbc629e13b5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5444, 151, 206, 4, 67, "Section",ExpressionUUID->"53c53980-c89a-4f42-a785-20181232bf93"],
+Cell[5653, 157, 321, 7, 58, "Text",ExpressionUUID->"3f1d5657-10de-4d22-b5bb-afddd7a5591f"],
+Cell[5977, 166, 9017, 185, 1060, "Input",ExpressionUUID->"fca35e63-8f10-4bff-a293-8f961aff64a9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15031, 356, 199, 3, 67, "Section",ExpressionUUID->"b410dece-c00d-4bfd-b8dc-c1b66ea20728"],
+Cell[15233, 361, 633, 11, 81, "Text",ExpressionUUID->"a96a5cba-7faa-4722-9299-3887baa300d9"],
+Cell[CellGroupData[{
+Cell[15891, 376, 1998, 42, 136, "Input",ExpressionUUID->"d4f5caa4-19fb-4696-9dee-7ea3fb5361e4"],
+Cell[CellGroupData[{
+Cell[17914, 422, 524, 11, 24, "Print",ExpressionUUID->"b65f2917-c32d-45df-9f95-3da381d59ea3"],
+Cell[18441, 435, 269, 5, 24, "Print",ExpressionUUID->"211a4a16-b76a-48a4-a338-878e402a84ed"],
+Cell[18713, 442, 524, 11, 24, "Print",ExpressionUUID->"5919a814-1f70-4bd9-bd64-c9897834740b"],
+Cell[19240, 455, 269, 5, 24, "Print",ExpressionUUID->"4d89982d-07c8-418d-b762-e624fa0f2ea0"],
+Cell[19512, 462, 524, 11, 24, "Print",ExpressionUUID->"d87acbc5-3478-4948-88e4-b87fe0bf30a1"],
+Cell[20039, 475, 269, 5, 24, "Print",ExpressionUUID->"51dfa996-a37b-456a-9bc5-57e44664232b"],
+Cell[20311, 482, 524, 11, 24, "Print",ExpressionUUID->"50afcbd7-26d5-4354-9b93-6111e9bfc5b2"],
+Cell[20838, 495, 269, 5, 24, "Print",ExpressionUUID->"4aff3a21-2f24-4c15-bf74-eb9a80fd855e"],
+Cell[21110, 502, 524, 11, 24, "Print",ExpressionUUID->"50d91ab5-5d5d-4fba-a2c5-c726a2cf3e6b"],
+Cell[21637, 515, 269, 5, 24, "Print",ExpressionUUID->"069d488e-ef62-433f-af00-a7fde4b019c5"],
+Cell[21909, 522, 524, 11, 24, "Print",ExpressionUUID->"7d60752d-c0bd-4641-990c-71c40e0c4447"],
+Cell[22436, 535, 269, 5, 24, "Print",ExpressionUUID->"7a11718a-4766-4ee6-b69c-fbe27ed934c7"],
+Cell[22708, 542, 524, 11, 24, "Print",ExpressionUUID->"891922f6-25e8-4e3a-ae3b-247d3cc95e30"],
+Cell[23235, 555, 271, 5, 24, "Print",ExpressionUUID->"199222cf-bcdd-49df-b1cb-b35b11163bf2"],
+Cell[23509, 562, 528, 11, 24, "Print",ExpressionUUID->"caa8fba4-e5b6-4328-a267-c52170534b62"],
+Cell[24040, 575, 269, 5, 24, "Print",ExpressionUUID->"1a11c19c-5ae1-421d-9dbd-ac27062b873b"],
+Cell[24312, 582, 526, 11, 24, "Print",ExpressionUUID->"091fe042-3e8c-4e98-bc06-58a2ad88e612"],
+Cell[24841, 595, 271, 5, 24, "Print",ExpressionUUID->"5d4822b0-e077-412f-bbba-7b3dca4c010d"],
+Cell[25115, 602, 530, 11, 24, "Print",ExpressionUUID->"9c00e41e-e616-4d17-b67b-9895b2e0ad28"],
+Cell[25648, 615, 271, 5, 24, "Print",ExpressionUUID->"d4de4b82-e2ab-454c-b894-dbc1c171746b"],
+Cell[25922, 622, 532, 11, 24, "Print",ExpressionUUID->"a9f1e2b0-3a82-4d3e-935d-a5ef566e0ade"],
+Cell[26457, 635, 269, 5, 24, "Print",ExpressionUUID->"ea026477-ac9e-485d-a178-ba79cdef52b8"],
+Cell[26729, 642, 532, 11, 24, "Print",ExpressionUUID->"2ff39791-ae7d-4231-ab12-6c84ca290312"],
+Cell[27264, 655, 271, 5, 24, "Print",ExpressionUUID->"2fd06b3f-8efa-487d-9833-850338e59faa"],
+Cell[27538, 662, 532, 11, 24, "Print",ExpressionUUID->"32a69b1b-9c17-4983-b419-0963a35cab9c"],
+Cell[28073, 675, 269, 5, 24, "Print",ExpressionUUID->"a535d58c-6c95-46f4-9b8f-007c132de4c7"],
+Cell[28345, 682, 530, 11, 24, "Print",ExpressionUUID->"6704b506-ea46-4c54-af96-b84355267727"],
+Cell[28878, 695, 271, 5, 24, "Print",ExpressionUUID->"898c838f-0ba3-433b-9572-ec581ff61bd2"],
+Cell[29152, 702, 537, 12, 24, "Print",ExpressionUUID->"930a9fb8-058d-41c5-ae34-8304b331a21f"],
+Cell[29692, 716, 269, 5, 24, "Print",ExpressionUUID->"1f64bcc2-cc26-4a9f-904e-5183774a77db"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,1 @@
+3 944                     fscanf(inPPM, "%c%c%c", &cRed, &cGreen, &cBlue);

@@ -1,0 +1,1 @@
+6 484     ImageStruct outImage = newImage(image->width, image->height, RGBA32_RASTER, 4);

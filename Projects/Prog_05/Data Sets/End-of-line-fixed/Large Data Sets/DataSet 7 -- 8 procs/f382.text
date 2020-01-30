@@ -1,0 +1,1 @@
+3 475     strcat(outFilePath, ROT_SUFFIX[rotVal]);

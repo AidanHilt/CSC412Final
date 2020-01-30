@@ -1,0 +1,1 @@
+40 802         printf("wordSizeRowPadding must be one of: 1, 4, 8, 16, 32, or 64\n");

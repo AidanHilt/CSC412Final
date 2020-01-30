@@ -1,0 +1,1 @@
+13 1016             image.bytesPerRow = 2*nbCols;

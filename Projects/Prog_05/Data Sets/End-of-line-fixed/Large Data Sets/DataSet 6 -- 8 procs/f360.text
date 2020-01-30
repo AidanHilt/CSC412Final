@@ -1,0 +1,1 @@
+3 584         printf("Cannot open image file %s\n", filePath);

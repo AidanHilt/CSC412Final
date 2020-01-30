@@ -1,0 +1,1 @@
+2 681             fread(data, sizeof(char), imgSize, tga_in);

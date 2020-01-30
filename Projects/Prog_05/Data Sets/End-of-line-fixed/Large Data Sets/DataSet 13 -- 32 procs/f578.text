@@ -1,0 +1,1 @@
+25 1011             unsigned short* pixelData = (unsigned short*)malloc(nbCols*nbRows*2);

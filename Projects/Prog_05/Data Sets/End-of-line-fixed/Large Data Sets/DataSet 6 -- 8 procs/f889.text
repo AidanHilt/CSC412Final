@@ -1,0 +1,1 @@
+3 510     ImageStruct outImage = newImage(image->width, image->height, RGBA32_RASTER, 4);

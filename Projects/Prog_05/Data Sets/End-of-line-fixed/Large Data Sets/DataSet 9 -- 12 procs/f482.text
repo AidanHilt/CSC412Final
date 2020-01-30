@@ -1,0 +1,1 @@
+6 722         head[5]  = head[6] = 0 ;                // Color map lenght.

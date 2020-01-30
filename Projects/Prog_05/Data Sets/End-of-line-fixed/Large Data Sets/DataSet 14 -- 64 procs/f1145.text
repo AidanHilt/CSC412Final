@@ -1,0 +1,1 @@
+29 594     info.height = (int)(((unsigned int)head[14]&0xFF) | (unsigned int)head[15]*256);

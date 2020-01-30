@@ -1,0 +1,1 @@
+1 850     if ((*cropCornerX + *cropWidth >= imageWidth) ||

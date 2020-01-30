@@ -1,0 +1,1 @@
+79 795         printf("Image size should be at least 3x3\n");

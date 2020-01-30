@@ -1,0 +1,1 @@
+74 741                 fwrite(&data[offset], sizeof(char), 1, tga_out);

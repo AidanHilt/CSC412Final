@@ -1,0 +1,1 @@
+58 1169     char    buf[80], skip[80], imgType[2], c;

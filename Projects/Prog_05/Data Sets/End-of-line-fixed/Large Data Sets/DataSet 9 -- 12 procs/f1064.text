@@ -1,0 +1,1 @@
+2 295 ImageStruct copyImage(const ImageStruct* image);

@@ -1,0 +1,1 @@
+g++ -Wall main$1.cpp gl_frontEnd.cpp -lm -lGL -lglut -lpthread -o robots

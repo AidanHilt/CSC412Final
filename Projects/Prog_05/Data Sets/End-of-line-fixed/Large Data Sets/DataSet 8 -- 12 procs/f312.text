@@ -1,0 +1,1 @@
+2 215 ImageIOErrorCode writePPM_PGM(const char* filePath, ImageStruct* img);

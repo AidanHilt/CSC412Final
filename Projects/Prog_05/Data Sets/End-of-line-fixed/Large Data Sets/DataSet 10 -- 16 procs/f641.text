@@ -1,0 +1,1 @@
+5 445         printf("%s: %s\n", ERROR_STR[code], input);

@@ -1,0 +1,354 @@
+\hypertarget{main3_8cpp}{}\section{main3.\+cpp File Reference}
+\label{main3_8cpp}\index{main3.\+cpp@{main3.\+cpp}}
+
+
+This is version 3 of the final project.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gl\+\_\+front\+End.\+h\char`\"{}}\newline
+Include dependency graph for main3.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a8e21376559e1b0de09499c24d33c6ab0}\label{main3_8cpp_a8e21376559e1b0de09499c24d33c6ab0}} 
+void {\bfseries display\+Grid\+Pane} (void)
+\item 
+\mbox{\Hypertarget{main3_8cpp_a7f46e841ece3f2875c1744f487113b1a}\label{main3_8cpp_a7f46e841ece3f2875c1744f487113b1a}} 
+void {\bfseries display\+State\+Pane} (void)
+\item 
+\mbox{\Hypertarget{main3_8cpp_a3d1373464c870b47f73affe85f6e21c0}\label{main3_8cpp_a3d1373464c870b47f73affe85f6e21c0}} 
+void {\bfseries initialize\+Application} (void)
+\item 
+\mbox{\Hypertarget{main3_8cpp_ab7f288adfa01b87821830c16288305c5}\label{main3_8cpp_ab7f288adfa01b87821830c16288305c5}} 
+void {\bfseries cleanup\+Grid\+And\+Lists} (void)
+\item 
+int $\ast$ \hyperlink{main3_8cpp_abbedc23d94533126e1be875b1355be96}{generate\+Start\+Pos} (int type)
+\item 
+void \hyperlink{main3_8cpp_ac0163431b97b8903267d0f8dc877b15c}{generate\+Door\+Assignments} (void)
+\begin{DoxyCompactList}\small\item\em This function generates a door assignment for each robot. \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{main3_8cpp_a210fe307153c6dd3268e128b6e69c2e3}{find\+Push\+Pos\+Vert} (int $\ast$box\+Pos, int $\ast$door\+Pos)
+\begin{DoxyCompactList}\small\item\em this function finds the vertical position from which the traveler will need to push the box from \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{main3_8cpp_a02c3e7988b483cc4e3877bbb8f49fdb8}{find\+Push\+Pos\+Hor} (int $\ast$box\+Pos, int $\ast$door\+Pos)
+\begin{DoxyCompactList}\small\item\em this function finds the horizontal position from which the traveler will need to push the box from \end{DoxyCompactList}\item 
+void \hyperlink{main3_8cpp_afdb080632651596a065fb7ffdb793f00}{move} (int $\ast$robot\+Position, Direction dir, int index)
+\begin{DoxyCompactList}\small\item\em Moves a robot 1 position, in the direction specified. It will check if its planned destination is valid, and wait until otherwise. \end{DoxyCompactList}\item 
+void \hyperlink{main3_8cpp_a89421a595bfc33ed3c3eab3f4784f779}{push} (int $\ast$robot\+Position, int $\ast$box\+Position, Direction dir, int index)
+\begin{DoxyCompactList}\small\item\em Moves a robot and a box 1 position, in the direction specified. \end{DoxyCompactList}\item 
+void \hyperlink{main3_8cpp_a31ed52898e96f628d3bdb8a83ebea220}{move\+To\+Destination} (int robot\+Index, int $\ast$position)
+\begin{DoxyCompactList}\small\item\em This function will move the traveler to where it needs to be to push a box. \end{DoxyCompactList}\item 
+void \hyperlink{main3_8cpp_afcf3516f45b561816a3752dc387e705c}{push\+To\+Destination} (int robot\+Index, int $\ast$position)
+\begin{DoxyCompactList}\small\item\em This function will push a box to a given destination. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{main3_8cpp_a553b231d5798c1284e6a74fdf0f2eb0b}{tracker\+Thread\+Function} (void $\ast$)
+\begin{DoxyCompactList}\small\item\em this is the function the tracker thread will run It will check to make sure at least one of the robots has moved every 5 seconds \end{DoxyCompactList}\item 
+int \hyperlink{main3_8cpp_a80dc6d0a468d3381b95a76eee3d594e1}{arrays\+Equal} (int $\ast$arr1, int $\ast$arr2)
+\begin{DoxyCompactList}\small\item\em This function determines if 2 int arrays are equal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main3_8cpp_a77a821b78874c1f03c26b4bf6fdb93cf}\label{main3_8cpp_a77a821b78874c1f03c26b4bf6fdb93cf}} 
+void {\bfseries speedup\+Robots} (void)
+\item 
+\mbox{\Hypertarget{main3_8cpp_aee1476932dbcc88e62576a8a3773e128}\label{main3_8cpp_aee1476932dbcc88e62576a8a3773e128}} 
+void {\bfseries slowdown\+Robots} (void)
+\item 
+\mbox{\Hypertarget{main3_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main3_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\item 
+\mbox{\Hypertarget{main3_8cpp_a95f2b9334ff1f38570d0bf9004125bd6}\label{main3_8cpp_a95f2b9334ff1f38570d0bf9004125bd6}} 
+void $\ast$ {\bfseries thread\+Function} (void $\ast$idx)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a9c15313e67488b213d2cea774b374f17}\label{main3_8cpp_a9c15313e67488b213d2cea774b374f17}} 
+const char $\ast$ {\bfseries O\+U\+T\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}robot\+Simul\+Out.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a38cb7677248ffc347c6948b8de8d4676}\label{main3_8cpp_a38cb7677248ffc347c6948b8de8d4676}} 
+int {\bfseries G\+R\+I\+D\+\_\+\+P\+A\+NE}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a9ea85942640c14c1808cebf18e270e0a}\label{main3_8cpp_a9ea85942640c14c1808cebf18e270e0a}} 
+int {\bfseries S\+T\+A\+T\+E\+\_\+\+P\+A\+NE}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a572443dcbdbd4aa6be03c924c77d54d9}\label{main3_8cpp_a572443dcbdbd4aa6be03c924c77d54d9}} 
+int {\bfseries G\+R\+I\+D\+\_\+\+P\+A\+N\+E\+\_\+\+W\+I\+D\+TH}
+\item 
+\mbox{\Hypertarget{main3_8cpp_ad13cd012598816ef6d2cedc3e77da819}\label{main3_8cpp_ad13cd012598816ef6d2cedc3e77da819}} 
+int {\bfseries G\+R\+I\+D\+\_\+\+P\+A\+N\+E\+\_\+\+H\+E\+I\+G\+HT}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a57448c606d448281e8bc23a38ecbf7d8}\label{main3_8cpp_a57448c606d448281e8bc23a38ecbf7d8}} 
+int {\bfseries g\+Main\+Window}
+\item 
+\mbox{\Hypertarget{main3_8cpp_acad84a992b0db46d4cdb6afe6aff1281}\label{main3_8cpp_acad84a992b0db46d4cdb6afe6aff1281}} 
+int {\bfseries g\+Subwindow} \mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{main3_8cpp_ab606568155f8f7394dc974c312584fe4}\label{main3_8cpp_ab606568155f8f7394dc974c312584fe4}} 
+int $\ast$$\ast$ {\bfseries grid}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a0801460eb7eb6812bd4e0ce52ab29024}\label{main3_8cpp_a0801460eb7eb6812bd4e0ce52ab29024}} 
+int {\bfseries num\+Rows} = -\/1
+\item 
+\mbox{\Hypertarget{main3_8cpp_a2d4acb52d99b57b5b524aaa557ab91eb}\label{main3_8cpp_a2d4acb52d99b57b5b524aaa557ab91eb}} 
+int {\bfseries num\+Cols} = -\/1
+\item 
+\mbox{\Hypertarget{main3_8cpp_ac5572642dba17f4529ab7e4fb4ab9226}\label{main3_8cpp_ac5572642dba17f4529ab7e4fb4ab9226}} 
+int {\bfseries num\+Boxes} = -\/1
+\item 
+\mbox{\Hypertarget{main3_8cpp_a4371c327f4dfbf81caccee737ea94209}\label{main3_8cpp_a4371c327f4dfbf81caccee737ea94209}} 
+int {\bfseries num\+Doors} = -\/1
+\item 
+\mbox{\Hypertarget{main3_8cpp_ad536e629ad9acb94151b74e218b03472}\label{main3_8cpp_ad536e629ad9acb94151b74e218b03472}} 
+int {\bfseries num\+Live\+Threads} = 0
+\item 
+\mbox{\Hypertarget{main3_8cpp_a406813ed02100c603833544d64594bd0}\label{main3_8cpp_a406813ed02100c603833544d64594bd0}} 
+const int {\bfseries M\+I\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+ME} = 1000
+\item 
+\mbox{\Hypertarget{main3_8cpp_acebb58d05380b05dcd9e99b5f69f5991}\label{main3_8cpp_acebb58d05380b05dcd9e99b5f69f5991}} 
+int {\bfseries robot\+Sleep\+Time} = 100000
+\item 
+\mbox{\Hypertarget{main3_8cpp_a6f4acdbb98c3308e1e755cf5e01a4fe7}\label{main3_8cpp_a6f4acdbb98c3308e1e755cf5e01a4fe7}} 
+const int {\bfseries M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+M\+E\+S\+S\+A\+G\+ES} = 8
+\item 
+\mbox{\Hypertarget{main3_8cpp_a4427879eb43005a709988ec34c6d0536}\label{main3_8cpp_a4427879eb43005a709988ec34c6d0536}} 
+const int {\bfseries M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+M\+E\+S\+S\+A\+GE} = 32
+\item 
+\mbox{\Hypertarget{main3_8cpp_a5a71782ebcbf35c821859558761c76f7}\label{main3_8cpp_a5a71782ebcbf35c821859558761c76f7}} 
+char $\ast$$\ast$ {\bfseries message}
+\item 
+\mbox{\Hypertarget{main3_8cpp_aaf564fc30a2a8624cf917e282281a500}\label{main3_8cpp_aaf564fc30a2a8624cf917e282281a500}} 
+time\+\_\+t {\bfseries start\+Time}
+\item 
+\mbox{\Hypertarget{main3_8cpp_ad6bd37e82098b47de7c41631ef9a2b19}\label{main3_8cpp_ad6bd37e82098b47de7c41631ef9a2b19}} 
+int $\ast$$\ast$ {\bfseries robot\+Locations}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a1a139de72986a4658f869f4aacc56c88}\label{main3_8cpp_a1a139de72986a4658f869f4aacc56c88}} 
+int $\ast$ {\bfseries robot\+Moved}
+\item 
+\mbox{\Hypertarget{main3_8cpp_ad52e2da75c8bb9733398ed64aa1b8b10}\label{main3_8cpp_ad52e2da75c8bb9733398ed64aa1b8b10}} 
+int $\ast$ {\bfseries dead\+Robots}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a4bf623c6bd7c87d36d31e1bdea4564f2}\label{main3_8cpp_a4bf623c6bd7c87d36d31e1bdea4564f2}} 
+int $\ast$ {\bfseries done\+Threads}
+\item 
+\mbox{\Hypertarget{main3_8cpp_af7aaf365a1602c366e63db46ced0e835}\label{main3_8cpp_af7aaf365a1602c366e63db46ced0e835}} 
+int $\ast$$\ast$ {\bfseries box\+Locations}
+\item 
+\mbox{\Hypertarget{main3_8cpp_abbd3ded567e78c95f23224908081db47}\label{main3_8cpp_abbd3ded567e78c95f23224908081db47}} 
+int $\ast$ {\bfseries door\+Assignments}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a9e3b12ba13b107f36d75ecbaa234c09e}\label{main3_8cpp_a9e3b12ba13b107f36d75ecbaa234c09e}} 
+int $\ast$$\ast$ {\bfseries door\+Locations}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a560a1be3cecc1da9d340f946296d746b}\label{main3_8cpp_a560a1be3cecc1da9d340f946296d746b}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries log\+File\+Lock}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a69b61b3cb66e72c2430538d8ba150cf7}\label{main3_8cpp_a69b61b3cb66e72c2430538d8ba150cf7}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries live\+Thread\+Lock}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a826b49be6e2237185652bc303a5db03b}\label{main3_8cpp_a826b49be6e2237185652bc303a5db03b}} 
+pthread\+\_\+mutex\+\_\+t $\ast$$\ast$ {\bfseries locks}
+\item 
+\mbox{\Hypertarget{main3_8cpp_a1b4d28199a837023dc6e5e13858eaab6}\label{main3_8cpp_a1b4d28199a837023dc6e5e13858eaab6}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries dead\+Robot\+Lock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is version 3 of the final project. 
+
+\begin{DoxyAuthor}{Author}
+Aidan Hilt/\+Derek Jacobs 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/12-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main3_8cpp_a80dc6d0a468d3381b95a76eee3d594e1}\label{main3_8cpp_a80dc6d0a468d3381b95a76eee3d594e1}} 
+\index{main3.\+cpp@{main3.\+cpp}!arrays\+Equal@{arrays\+Equal}}
+\index{arrays\+Equal@{arrays\+Equal}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{arrays\+Equal()}{arraysEqual()}}
+{\footnotesize\ttfamily int arrays\+Equal (\begin{DoxyParamCaption}\item[{int $\ast$}]{arr1,  }\item[{int $\ast$}]{arr2 }\end{DoxyParamCaption})}
+
+
+
+This function determines if 2 int arrays are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr1} & the first int array \\
+\hline
+{\em arr2} & the second array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the robot that has not moved if the arrays are equal 
+
+0 if they are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main3_8cpp_a02c3e7988b483cc4e3877bbb8f49fdb8}\label{main3_8cpp_a02c3e7988b483cc4e3877bbb8f49fdb8}} 
+\index{main3.\+cpp@{main3.\+cpp}!find\+Push\+Pos\+Hor@{find\+Push\+Pos\+Hor}}
+\index{find\+Push\+Pos\+Hor@{find\+Push\+Pos\+Hor}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{find\+Push\+Pos\+Hor()}{findPushPosHor()}}
+{\footnotesize\ttfamily int$\ast$ find\+Push\+Pos\+Hor (\begin{DoxyParamCaption}\item[{int $\ast$}]{box\+Pos,  }\item[{int $\ast$}]{door\+Pos }\end{DoxyParamCaption})}
+
+
+
+this function finds the horizontal position from which the traveler will need to push the box from 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Pos,the} & position of the box \\
+\hline
+{\em door\+Pos,the} & position of the door \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\ast$ the coordinate pair for the position the traveler needs to reach 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main3_8cpp_a210fe307153c6dd3268e128b6e69c2e3}\label{main3_8cpp_a210fe307153c6dd3268e128b6e69c2e3}} 
+\index{main3.\+cpp@{main3.\+cpp}!find\+Push\+Pos\+Vert@{find\+Push\+Pos\+Vert}}
+\index{find\+Push\+Pos\+Vert@{find\+Push\+Pos\+Vert}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{find\+Push\+Pos\+Vert()}{findPushPosVert()}}
+{\footnotesize\ttfamily int$\ast$ find\+Push\+Pos\+Vert (\begin{DoxyParamCaption}\item[{int $\ast$}]{box\+Pos,  }\item[{int $\ast$}]{door\+Pos }\end{DoxyParamCaption})}
+
+
+
+this function finds the vertical position from which the traveler will need to push the box from 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Pos,the} & position of the box \\
+\hline
+{\em door\+Pos,the} & position of the door \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int$\ast$ the coordinate pair for the position the traveler needs to reach 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main3_8cpp_ac0163431b97b8903267d0f8dc877b15c}\label{main3_8cpp_ac0163431b97b8903267d0f8dc877b15c}} 
+\index{main3.\+cpp@{main3.\+cpp}!generate\+Door\+Assignments@{generate\+Door\+Assignments}}
+\index{generate\+Door\+Assignments@{generate\+Door\+Assignments}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{generate\+Door\+Assignments()}{generateDoorAssignments()}}
+{\footnotesize\ttfamily void generate\+Door\+Assignments (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function generates a door assignment for each robot. 
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main3_8cpp_abbedc23d94533126e1be875b1355be96}\label{main3_8cpp_abbedc23d94533126e1be875b1355be96}} 
+\index{main3.\+cpp@{main3.\+cpp}!generate\+Start\+Pos@{generate\+Start\+Pos}}
+\index{generate\+Start\+Pos@{generate\+Start\+Pos}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{generate\+Start\+Pos()}{generateStartPos()}}
+{\footnotesize\ttfamily int$\ast$ generate\+Start\+Pos (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+This function will generate a random starting coordinate for each of the doors,boxes, robots 
+\begin{DoxyParams}{Parameters}
+{\em type,what} & object the positions are for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+0 type is a traveler, 1 is a box, 2 is a door 
+
+this function checks to make sure a square is unoccupied before it places an object 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+an int $\ast$ containing the starting row and column of the object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main3_8cpp_afdb080632651596a065fb7ffdb793f00}\label{main3_8cpp_afdb080632651596a065fb7ffdb793f00}} 
+\index{main3.\+cpp@{main3.\+cpp}!move@{move}}
+\index{move@{move}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void move (\begin{DoxyParamCaption}\item[{int $\ast$}]{robot\+Position,  }\item[{Direction}]{dir,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Moves a robot 1 position, in the direction specified. It will check if its planned destination is valid, and wait until otherwise. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em robot\+Position} & The current position of the robot \\
+\hline
+{\em dir} & The direction that the robot should move in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main3_8cpp_a31ed52898e96f628d3bdb8a83ebea220}\label{main3_8cpp_a31ed52898e96f628d3bdb8a83ebea220}} 
+\index{main3.\+cpp@{main3.\+cpp}!move\+To\+Destination@{move\+To\+Destination}}
+\index{move\+To\+Destination@{move\+To\+Destination}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{move\+To\+Destination()}{moveToDestination()}}
+{\footnotesize\ttfamily void move\+To\+Destination (\begin{DoxyParamCaption}\item[{int}]{robot\+Index,  }\item[{int $\ast$}]{position }\end{DoxyParamCaption})}
+
+
+
+This function will move the traveler to where it needs to be to push a box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position,the} & position the robot must move to \\
+\hline
+{\em robot\+Index} & the index of the robot that will be moving \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main3_8cpp_a89421a595bfc33ed3c3eab3f4784f779}\label{main3_8cpp_a89421a595bfc33ed3c3eab3f4784f779}} 
+\index{main3.\+cpp@{main3.\+cpp}!push@{push}}
+\index{push@{push}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void push (\begin{DoxyParamCaption}\item[{int $\ast$}]{robot\+Position,  }\item[{int $\ast$}]{box\+Position,  }\item[{Direction}]{dir,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Moves a robot and a box 1 position, in the direction specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em robot\+Position} & The current position of the robot \\
+\hline
+{\em box\+Position} & The current position of the box \\
+\hline
+{\em dir} & The direction the robot and box should move in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main3_8cpp_afcf3516f45b561816a3752dc387e705c}\label{main3_8cpp_afcf3516f45b561816a3752dc387e705c}} 
+\index{main3.\+cpp@{main3.\+cpp}!push\+To\+Destination@{push\+To\+Destination}}
+\index{push\+To\+Destination@{push\+To\+Destination}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{push\+To\+Destination()}{pushToDestination()}}
+{\footnotesize\ttfamily void push\+To\+Destination (\begin{DoxyParamCaption}\item[{int}]{robot\+Index,  }\item[{int $\ast$}]{position }\end{DoxyParamCaption})}
+
+
+
+This function will push a box to a given destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em robot\+Index,which} & robot will be moving \\
+\hline
+{\em position,the} & detination position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main3_8cpp_a553b231d5798c1284e6a74fdf0f2eb0b}\label{main3_8cpp_a553b231d5798c1284e6a74fdf0f2eb0b}} 
+\index{main3.\+cpp@{main3.\+cpp}!tracker\+Thread\+Function@{tracker\+Thread\+Function}}
+\index{tracker\+Thread\+Function@{tracker\+Thread\+Function}!main3.\+cpp@{main3.\+cpp}}
+\subsubsection{\texorpdfstring{tracker\+Thread\+Function()}{trackerThreadFunction()}}
+{\footnotesize\ttfamily void $\ast$ tracker\+Thread\+Function (\begin{DoxyParamCaption}\item[{void $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+this is the function the tracker thread will run It will check to make sure at least one of the robots has moved every 5 seconds 
+
+\begin{DoxyReturn}{Returns}
+void$\ast$ 
+\end{DoxyReturn}

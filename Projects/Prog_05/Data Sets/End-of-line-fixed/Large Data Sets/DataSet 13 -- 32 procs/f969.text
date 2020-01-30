@@ -1,0 +1,1 @@
+10 391             free(outImage.raster);

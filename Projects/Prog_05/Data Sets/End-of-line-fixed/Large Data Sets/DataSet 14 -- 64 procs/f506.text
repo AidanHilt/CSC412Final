@@ -1,0 +1,1 @@
+13 264 char* produceOutFilePath(const char* inputImagePath, const char* outFolderPath,

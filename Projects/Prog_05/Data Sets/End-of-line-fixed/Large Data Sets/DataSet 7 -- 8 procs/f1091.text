@@ -1,0 +1,1 @@
+6 1044                     for (unsigned j = 0; j < nbCols; j++, index++)

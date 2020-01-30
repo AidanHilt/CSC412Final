@@ -1,0 +1,1 @@
+49 493 ImageStruct rotateImage90(const ImageStruct* image)

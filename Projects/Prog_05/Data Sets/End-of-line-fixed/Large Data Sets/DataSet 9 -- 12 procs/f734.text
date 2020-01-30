@@ -1,0 +1,1 @@
+11 1173     fscanf(inPPM, "%s", buf);

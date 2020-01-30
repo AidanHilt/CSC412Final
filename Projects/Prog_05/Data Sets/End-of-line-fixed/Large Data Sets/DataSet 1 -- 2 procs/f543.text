@@ -1,0 +1,1 @@
+0 614         printf("Its type is %d and it has %d bits per pixel.\n", head[2], head[16]);

@@ -1,0 +1,1 @@
+3 946                     pixelData[index++] = (unsigned char) cRed;

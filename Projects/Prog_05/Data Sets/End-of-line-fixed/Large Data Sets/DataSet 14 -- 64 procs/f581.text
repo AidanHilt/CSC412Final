@@ -1,0 +1,1 @@
+23 474     strcat(outFilePath, inputFileRootName);

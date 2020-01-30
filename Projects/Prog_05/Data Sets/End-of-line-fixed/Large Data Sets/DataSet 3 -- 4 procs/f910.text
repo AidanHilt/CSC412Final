@@ -1,0 +1,1 @@
+1 340     ImageStruct image = readTGA(inputImagePath);

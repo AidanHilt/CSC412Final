@@ -1,0 +1,1 @@
+31 1228     sscanf(buf,"%d", nbCols);

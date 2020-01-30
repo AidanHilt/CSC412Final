@@ -1,0 +1,1 @@
+16 643                     fread(ptr, 3*sizeof(char), 1, tga_in);

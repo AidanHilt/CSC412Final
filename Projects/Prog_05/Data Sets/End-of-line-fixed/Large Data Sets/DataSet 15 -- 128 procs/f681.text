@@ -1,0 +1,1 @@
+47 470     strcpy(inputFileRootName, inputImagePath+k);

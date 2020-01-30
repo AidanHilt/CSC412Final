@@ -1,0 +1,1 @@
+6 517             rasterOut[(outImage.height-i-1)*outImage.width + outImage.width - j -1] =

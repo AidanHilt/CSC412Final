@@ -1,0 +1,1 @@
+8 332     const char* outFolderPath = argv[3];

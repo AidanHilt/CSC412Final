@@ -1,0 +1,1 @@
+2 766         head[15] = (char) (info->height >> 8) ;     // Image height.

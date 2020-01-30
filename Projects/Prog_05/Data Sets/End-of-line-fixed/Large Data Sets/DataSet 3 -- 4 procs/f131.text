@@ -1,0 +1,1 @@
+2 868                (unsigned char*) imageIn->raster + (imageIn->height - i - cropCornerY - 1)*imageIn->bytesPerRow

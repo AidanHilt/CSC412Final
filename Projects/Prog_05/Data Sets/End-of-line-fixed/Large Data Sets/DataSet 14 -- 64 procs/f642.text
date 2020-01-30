@@ -1,0 +1,1 @@
+26 527     const int* rasterIn = (int*)(image->raster);

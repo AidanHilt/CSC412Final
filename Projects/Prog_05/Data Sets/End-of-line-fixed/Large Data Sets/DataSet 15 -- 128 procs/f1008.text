@@ -1,0 +1,1 @@
+69 699     FILE* tga_out = fopen(filePath, "wb" );

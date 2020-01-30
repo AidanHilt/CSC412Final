@@ -1,0 +1,1 @@
+54 1089         printf("Error in writePPM: couldn't write to file %s\n", filePath);

@@ -1,0 +1,1 @@
+36 739                 fwrite(&data[offset+2], sizeof(char), 1, tga_out);

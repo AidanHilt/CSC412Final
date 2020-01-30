@@ -1,0 +1,1 @@
+46 928                     pixelData[index++] = (unsigned char) (valScale*theGreen);

@@ -1,0 +1,1 @@
+5 212  *  @param  img     pointer to the ImageStruct of the image to write into a .ppm or .pgm file.

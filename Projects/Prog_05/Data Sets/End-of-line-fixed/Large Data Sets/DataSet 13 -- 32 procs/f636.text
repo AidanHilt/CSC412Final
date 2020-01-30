@@ -1,0 +1,1 @@
+19 750     else if (info->type == GRAY_RASTER)

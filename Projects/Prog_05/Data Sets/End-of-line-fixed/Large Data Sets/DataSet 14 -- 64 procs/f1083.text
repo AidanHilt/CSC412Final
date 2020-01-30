@@ -1,0 +1,1 @@
+54 1099         for (unsigned int i=img->height-1, mirrorI=0; mirrorI<img->height; i--, mirrorI++)

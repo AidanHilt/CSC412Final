@@ -1,0 +1,1 @@
+1 1092     if (img->type == RGBA32_RASTER)

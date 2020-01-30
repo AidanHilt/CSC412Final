@@ -1,0 +1,1 @@
+4 425             *rotVal = (*rotVal + 1) % NUM_ROTATIONS;

@@ -1,0 +1,1 @@
+21 847         errorReport(INVALID_CROP_HEIGHT_TYPE, argv[3]);

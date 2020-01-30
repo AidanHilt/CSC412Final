@@ -1,0 +1,1 @@
+6 472     inputFileRootName[strlen(inputFileRootName)-4] = '\0';

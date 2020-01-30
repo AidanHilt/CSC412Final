@@ -1,0 +1,1 @@
+33 331     const char* inputImagePath = argv[2];

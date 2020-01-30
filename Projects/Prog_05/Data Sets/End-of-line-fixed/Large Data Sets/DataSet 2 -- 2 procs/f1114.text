@@ -1,0 +1,1 @@
+0 469     char* inputFileRootName = (char*) malloc(strlen(inputImagePath+k) +1);

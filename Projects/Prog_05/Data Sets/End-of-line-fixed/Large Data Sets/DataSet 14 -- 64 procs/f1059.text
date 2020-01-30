@@ -1,0 +1,1 @@
+44 898     FILE* inPPM = fopen(filePath, "r");

@@ -1,0 +1,1 @@
+59 595     unsigned int imgSize = info.height * info.width;

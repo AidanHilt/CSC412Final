@@ -1,0 +1,1 @@
+8 926                     fscanf(inPPM, "%d%d%d", &theRed, &theGreen, &theBlue);

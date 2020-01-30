@@ -1,0 +1,1 @@
+g++ -Wall main.cpp gl_frontEnd.cpp -lpthread -lm -lGL -lglut -o travel

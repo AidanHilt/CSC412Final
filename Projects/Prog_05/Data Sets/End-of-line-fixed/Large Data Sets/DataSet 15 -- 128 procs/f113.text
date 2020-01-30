@@ -1,0 +1,1 @@
+52 528     int* rasterOut = (int*)(outImage.raster);

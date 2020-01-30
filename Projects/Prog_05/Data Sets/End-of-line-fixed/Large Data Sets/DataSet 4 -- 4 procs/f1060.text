@@ -1,0 +1,1 @@
+3 1025                 for (unsigned int i = nbRows-1, invI = 0; invI < nbRows; i--, invI++)

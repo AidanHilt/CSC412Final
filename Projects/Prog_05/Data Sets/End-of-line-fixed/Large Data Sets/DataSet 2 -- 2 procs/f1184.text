@@ -1,0 +1,1 @@
+0 457     unsigned long k = strlen(inputImagePath) - 5;

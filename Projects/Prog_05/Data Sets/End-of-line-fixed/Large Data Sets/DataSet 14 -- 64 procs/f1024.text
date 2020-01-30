@@ -1,0 +1,1 @@
+27 551         theData[k*3+2] = theData[k*3];

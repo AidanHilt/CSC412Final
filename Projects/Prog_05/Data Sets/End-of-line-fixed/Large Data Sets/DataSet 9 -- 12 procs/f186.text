@@ -1,0 +1,1 @@
+7 737             for(int j = 0; j < info->width; j++)

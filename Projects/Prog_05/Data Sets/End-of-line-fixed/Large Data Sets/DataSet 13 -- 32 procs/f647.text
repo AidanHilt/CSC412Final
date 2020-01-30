@@ -1,0 +1,1 @@
+14 581     FILE* tga_in = fopen(filePath, "rb" );

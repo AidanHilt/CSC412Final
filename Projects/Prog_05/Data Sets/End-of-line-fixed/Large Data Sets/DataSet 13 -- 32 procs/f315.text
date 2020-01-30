@@ -1,0 +1,1 @@
+9 374             writeTGA(outImagePath, &outImage);

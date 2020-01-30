@@ -1,0 +1,1 @@
+15 313 ImageStruct rotateImage270(const ImageStruct* image);

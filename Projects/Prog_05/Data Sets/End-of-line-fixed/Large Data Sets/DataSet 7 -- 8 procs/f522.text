@@ -1,0 +1,1 @@
+3 524 ImageStruct rotateImage270(const ImageStruct* image)

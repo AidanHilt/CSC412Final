@@ -1,0 +1,1 @@
+59 593     info.width = (int)(((unsigned int)head[12]&0xFF) | (unsigned int)head[13]*256);

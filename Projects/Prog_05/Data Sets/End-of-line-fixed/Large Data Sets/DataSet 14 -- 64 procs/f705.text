@@ -1,0 +1,1 @@
+23 462     char* outFilePath = (char*) malloc(strlen(outFolderPath) +

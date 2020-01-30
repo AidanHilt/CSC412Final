@@ -1,0 +1,1 @@
+25 516         for (unsigned j=0; j<image->width; j++)

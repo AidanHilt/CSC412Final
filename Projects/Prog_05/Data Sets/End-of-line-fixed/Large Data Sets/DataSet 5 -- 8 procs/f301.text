@@ -1,0 +1,1 @@
+7 1148                 fprintf(stderr, "Error in writePPM: couldn't write to file %s\n",

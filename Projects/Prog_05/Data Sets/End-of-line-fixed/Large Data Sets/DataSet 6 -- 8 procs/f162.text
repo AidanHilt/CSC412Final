@@ -1,0 +1,1 @@
+6 988                         fscanf(inPPM, "%d", &grayVal);

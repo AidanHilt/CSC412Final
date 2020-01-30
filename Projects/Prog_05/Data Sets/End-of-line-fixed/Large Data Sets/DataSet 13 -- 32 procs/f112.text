@@ -1,0 +1,1 @@
+28 1101             for (unsigned int j=0; j<img->width; j++)

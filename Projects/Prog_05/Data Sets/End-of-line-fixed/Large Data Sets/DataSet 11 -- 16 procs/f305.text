@@ -1,0 +1,1 @@
+10 780         printf("Image type not supported for output\n");

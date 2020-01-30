@@ -1,0 +1,1 @@
+1 564         theData[k*4+2] = theData[k*4];

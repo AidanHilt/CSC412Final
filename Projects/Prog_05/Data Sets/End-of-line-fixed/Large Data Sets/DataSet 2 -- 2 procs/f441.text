@@ -1,0 +1,1 @@
+1 736             unsigned long offset = i*4*info->width;

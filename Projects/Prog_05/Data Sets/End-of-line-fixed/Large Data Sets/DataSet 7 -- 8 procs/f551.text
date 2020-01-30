@@ -1,0 +1,1 @@
+7 1232     fscanf(inPPM,"%d", maxVal);

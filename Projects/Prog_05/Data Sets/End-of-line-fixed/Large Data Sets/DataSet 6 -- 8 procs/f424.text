@@ -1,0 +1,1 @@
+5 907     int isASCII = getHeaderInfoPPM_PGM_(inPPM, filePath, &fileType,

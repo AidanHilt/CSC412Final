@@ -1,0 +1,1 @@
+1 844     if (sscanf(argv[5], "%u", cropWidth) != 1)

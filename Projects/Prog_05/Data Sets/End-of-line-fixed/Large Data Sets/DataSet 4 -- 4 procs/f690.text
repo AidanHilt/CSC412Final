@@ -1,0 +1,1 @@
+3 1049                         fscanf(inPPM, "%c%c", vp, vp+1);

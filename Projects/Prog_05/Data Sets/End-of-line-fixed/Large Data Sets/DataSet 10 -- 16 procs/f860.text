@@ -1,0 +1,1 @@
+3 253 void errorReport(ImageIOErrorCode code, const char* input);

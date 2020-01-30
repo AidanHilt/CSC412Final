@@ -1,0 +1,1 @@
+19 765         head[12] = (char) (info->width & 0x0FF) ;

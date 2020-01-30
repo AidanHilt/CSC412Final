@@ -1,0 +1,1 @@
+5 532             rasterOut[j*outImage.width + outImage.width - i - 1] =

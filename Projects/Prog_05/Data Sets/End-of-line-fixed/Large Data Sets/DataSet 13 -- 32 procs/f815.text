@@ -1,0 +1,1 @@
+26 1032                         fscanf(inPPM, "%hu", r2D[i] + j);

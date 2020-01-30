@@ -1,0 +1,1 @@
+9 774             fwrite(&data[i*info->width], sizeof(char), info->width, tga_out);

@@ -1,0 +1,1 @@
+19 381             ImageStruct outImage = rotateImage180(&image);

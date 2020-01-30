@@ -1,0 +1,1 @@
+23 913         unsigned char* pixelData = (unsigned char*)calloc(4*nbCols*nbRows, 1);

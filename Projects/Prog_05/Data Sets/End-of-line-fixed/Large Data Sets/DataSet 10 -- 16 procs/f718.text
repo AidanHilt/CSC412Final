@@ -1,0 +1,1 @@
+10 820         img.bytesPerPixel = sizeof(float);

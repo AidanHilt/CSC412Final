@@ -1,0 +1,1 @@
+3 602         data = (unsigned char*) malloc(imgSize*4);

@@ -1,0 +1,1 @@
+3 1115     else if (img->type == GRAY_RASTER)

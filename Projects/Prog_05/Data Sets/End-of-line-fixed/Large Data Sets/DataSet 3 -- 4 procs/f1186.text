@@ -1,0 +1,1 @@
+2 842     if ((*cropCornerX >= imageWidth) || (*cropCornerY >= imageHeight))

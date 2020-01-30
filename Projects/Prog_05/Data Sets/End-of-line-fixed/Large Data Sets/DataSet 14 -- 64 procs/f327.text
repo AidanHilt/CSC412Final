@@ -1,0 +1,1 @@
+25 514     for (unsigned i=0; i<image->height; i++)
